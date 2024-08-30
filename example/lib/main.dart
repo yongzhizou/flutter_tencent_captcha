@@ -1,16 +1,34 @@
 import 'dart:convert';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_tencent_captcha/flutter_tencent_captcha.dart';
 
-void main() {
+import 'package:http/http.dart' as http;
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  //var url = Uri.parse('https://turing.captcha.qcloud.com/TCaptcha.js');
+  //var response = await http.get(url);
+  //if (response.statusCode == 200) {
+  //  // 请求成功，打印响应体
+  //  print('Response data: ${response.body}');
+  //} else {
+  //  // 请求失败，打印状态码
+  //  print('Request failed with status: ${response.statusCode}.');
+  //}
+  //Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> results) {
+  //  for (var result in results) {
+  //    print("connection result:$result");
+  //  }
+  //});
+
   // 请填写你自己的 AppId
-  TencentCaptcha.init('<your appid>');
+  TencentCaptcha.init('199457355');
 
   runApp(const MyApp());
 }

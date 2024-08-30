@@ -7,12 +7,16 @@ class TencentCaptchaConfig {
   // 示例 {"width": 140, "height": 140}
   // 移动端原生webview调用时传入，为设置的验证码弹框大小。
   Map<String, dynamic>? sdkOpts;
+  bool? needFeedBack;
+  String? aidEncrypted;
 
   TencentCaptchaConfig({
     this.appId,
     this.bizState,
     this.enableDarkMode,
     this.sdkOpts,
+    this.needFeedBack,
+    this.aidEncrypted,
   });
 
   Map<String, dynamic> toJson() {
@@ -23,6 +27,8 @@ class TencentCaptchaConfig {
       jsonObject.putIfAbsent("enableDarkMode", () => enableDarkMode);
     }
     if (sdkOpts != null) jsonObject.putIfAbsent("sdkOpts", () => sdkOpts);
+    if (needFeedBack != null) jsonObject.putIfAbsent("needFeedBack", () => needFeedBack);
+    if (aidEncrypted != null) jsonObject.putIfAbsent("aidEncrypted", () => aidEncrypted);
 
     return jsonObject;
   }
